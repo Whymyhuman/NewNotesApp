@@ -26,7 +26,7 @@ GRADLE_WRAPPER_PROPERTIES="$SCRIPT_DIR/gradle/wrapper/gradle-wrapper.properties"
 if [ ! -f "$GRADLE_WRAPPER_JAR" ]; then
     echo "Downloading Gradle wrapper JAR..."
     if [ -f "$GRADLE_WRAPPER_PROPERTIES" ]; then
-        DISTRIBUTION_URL=$(grep "^distributionUrl" "$GRADLE_WRAPPER_PROPERTIES" | cut -d'=' -f2- | sed 's/\\://g')
+        DISTRIBUTION_URL=$(grep "^distributionUrl" "$GRADLE_WRAPPER_PROPERTIES" | cut -d'=' -f2- | sed 's/\\//g') # Corrected sed command
         if [ -n "$DISTRIBUTION_URL" ]; then
             # Extract the wrapper JAR URL from the distribution URL
             WRAPPER_JAR_URL=$(echo "$DISTRIBUTION_URL" | sed 's/-bin.zip/-wrapper.jar/')
